@@ -5,7 +5,7 @@
 The goal of this lab is to:
 
 1. Learn about **C++ compilation, Assembly and leveraging the CPU directly**.
-2. Learn how to use **SIMD intrinsics to speed up code that the compiler can't**. 
+2. Learn how to use **SIMD intrinsics to speed up code that the compiler can't automatically**. 
 3. Practice using **godbolt.com to visualize assembly code and its instructions**.
 4. Profile 2 versions of cumulative summation code with and without SIMD intrinsics.
 

@@ -50,7 +50,7 @@ int main() {
     return 0;
 }
 ```
-Paste the code into the [godbolt.com](https://godbolt.org/) C++ source text editor and see what the assembly looks like. Do the instructions and data types make sense? Hover over each instruction to get an idea of what is going on and hovering over the C++ source code will highlight the corresponding regions in the assembly compilers.
+Paste the code into the [godbolt.com](https://godbolt.org/) C++ source text editor and see what the assembly looks like, use the `x86-64 gcc 15.2` compiler. Do the instructions and data types make sense? Hover over each instruction to get an idea of what is going on and hovering over the C++ source code will highlight the corresponding regions in the assembly compilers.
 
 1) Now use the optimization flag for C++ `-O1` in the compiler options. What does the assembly look like now? Whats going on here?
 2) Now try `-O2` as the compiler optimization option. What changes?
@@ -74,13 +74,15 @@ Paste the code into the godbolt C++ source text editor and see what the assembly
 
 1) Now use the different optimization flags -O1 to -O3 to see when vectorization occurs and which registers are being used along with which SIMD instruction. Also try `-O3 -march=native`, does anything change?
 
-| Optimization Flag          | Vectorized? (Yes/No) | SIMD Registers Used (XMM/YMM/ZMM) | Key SIMD Instructions Observed | Notes / Observations |
+| Optimization Flag          | Vectorized? (Yes/No) | SIMD Registers Used (XMM/YMM/ZMM) | Key SIMD Instructions Observed |     Architecture    |
 |----------------------------|----------------------|----------------------------------|--------------------------------|----------------------|
 | -O0 or None                |                      |                                  |                                |                      |
 | -O1                        |                      |                                  |                                |                      |
 | -O2                        |                      |                                  |                                |                      |
 | -O3                        |                      |                                  |                                |                      |
 | -O3 -march=native          |                      |                                  |                                |                      |
+| -O3 -mavx                  |                      |                                  |                                |                      |
+| -O3 -mavx512f              |                      |                                  |                                |                      |
 
 ### Investigation 3:
 ```cpp

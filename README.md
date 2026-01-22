@@ -104,7 +104,7 @@ int main() {
 }
 ```
 
-The code above is not vectorizable, you can try to put it into godbolt and try any compilation flags you like but you won't be able to get it to vectorize. It is not vectorizable because there is data dependency on `sum`, each iteration depends on what the previous value of `sum`.
+The code above is not vectorizable because there is data dependency on `sum`, each iteration depends on what the previous value of `sum`.
 
 But all hope is not lost! We can still vectorize this but it will require more work from us using SIMD intrinsics: [intel intrinsics for AVX2](https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#avxnewtechs=AVX2) (on the right hand side you see what Assembly instruction the instrinic maps to).
 
